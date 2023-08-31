@@ -1,0 +1,35 @@
+version: '3.1'
+
+services:
+  mongodb:
+    container_name: ${CONTAINER_NAME}	
+    image: mongo:7.0.0
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongodb_vol:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+    restart: always
+    command: ["mongod", "--auth"]
+
+  mongo-express:
+    container_name: ${CONTAINER_NAME}-express
+    image: mongo-express:1.0.0-alpha.4
+    ports:
+      - "8081:8081"
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: ${MONGO_USERNAME}
+      ME_CONFIG_MONGODB_ADMINPASSWORD: ${MONGO_PASSWORD}
+      ME_CONFIG_MONGODB_SERVER: ${CONTAINER_NAME}
+    restart: always
+    depends_on:
+      - mongodb
+volumes:
+  mongodb_vol:
+    external: false
+
+# URL      
+# mongodb://cayo:654321@localhost:27018
+# http://localhost:8081/
