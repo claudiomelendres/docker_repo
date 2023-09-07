@@ -1,0 +1,20 @@
+# Ignorar archivos y directorios específicos
+.git
+node_modules
+*.log
+.dockerignore
+.gitignore
+
+# Ignorar todos los archivos .md (archivos Markdown)
+*.md
+
+# Ignorar archivos temporales y de respaldo generados por editores
+*~
+*.swp
+
+# Ignorar archivos y directorios específicos dentro de un directorio
+logs/
+temp/
+
+# personalizados
+dockerfile

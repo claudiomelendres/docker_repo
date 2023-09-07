@@ -1,0 +1,40 @@
+# Módulos de Node.js
+/node_modules
+
+# Archivos de registro
+npm-debug.log
+yarn-error.log
+
+# Archivos generados por editores y sistemas operativos
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Carpeta de salida de construcción (ejemplo: dist)
+/dist
+
+# Variables de entorno locales
+.env
+.env.local
+.env.*.local
+
+# Carpeta de dependencias de TypeScript (ejemplo: node_modules/@types)
+/node_modules/@types
+
+# Dependencias de desarrollo (ejemplo: node_modules/typescript)
+/node_modules/typescript
+
+# Carpetas de cobertura generadas por herramientas de prueba (ejemplo: coverage)
+/coverage
+
+# Archivo de configuración personal para nodemon
+nodemon.json
+
+# Dependencias de desarrollo de parcel
+.cache
+
+# Archivos de copia de seguridad de Visual Studio Code
+.history
+
+# Configuración de editor (ejemplo: .vscode/settings.json)
+/.vscode/settings.json
