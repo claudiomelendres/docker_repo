@@ -2,6 +2,8 @@
 .git
 node_modules
 *.log
+.dockerignore
+.gitignore
 
 # Ignorar todos los archivos .md (archivos Markdown)
 *.md
@@ -14,4 +16,5 @@ node_modules
 logs/
 temp/
 
+# personalizados
 dockerfile

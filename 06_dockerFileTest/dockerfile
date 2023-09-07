@@ -17,6 +17,13 @@ COPY . .
 # ejecutar el testing
 RUN npm run test
 
+# eliminar archivos no necesarios en PROD
+RUN rm -rf test && rm -rf node_modules
+
+# Instalar solo nodemodules de PROD
+RUN npm install --prod
+
+
 # Exponer el puerto en el que la aplicación va a estar escuchando
 EXPOSE 3000
 
