@@ -1,0 +1,27 @@
+# Dependencias de Desarrollo
+FROM node:19.2-alpine3.17
+WORKDIR /app
+COPY app.js package*.json ./
+RUN npm install
+
+# Build y Tests
+FROM node:19.2-alpine3.17 as builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+RUN npm run test
+
+#Dependencias de Prod
+FROM node:19.2-alpine3.17 as prods-deps
+WORKDIR /app
+COPY package*.json ./
+RUN npm install --prod
+
+#Ejecutar la APP
+FROM node:19.2-alpine3.17 as runner
+WORKDIR /app
+COPY --from=prods-deps /app/node_modules ./node_modules
+COPY app.js package*.json ./
+COPY core/ ./core
+EXPOSE 3000
+CMD ["npm", "start"]
